@@ -84,9 +84,12 @@ class LandingPage extends ActiveRecord
 
     public function getLpWidgets()
     {
+        return $this->hasMany(LpWidget::class, ['landingPageId' => 'id']);
     }
 
     public function getLpBlocks()
     {
+        return $this->hasMany(LpBlock::class, ['typeId' => 'id'])
+            ->via('lpType');
     }
 }

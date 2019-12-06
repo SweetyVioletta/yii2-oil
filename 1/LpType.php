@@ -100,5 +100,7 @@ class LpType extends ActiveRecord
      */
     public function getLpWidgets()
     {
+        return $this->hasMany(LpWidget::class, ['landingPageId' => 'id'])
+            ->via('landingPages');
     }
 }

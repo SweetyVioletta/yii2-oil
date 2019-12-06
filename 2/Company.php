@@ -127,6 +127,7 @@ class Company extends ActiveRecordWithActive
      */
     public function getComments()
     {
+        return Comment::find()->where(['model' => $this->_commentModel]);
     }
 
 }
